@@ -1,121 +1,158 @@
+:root {
+    --sp-bg: #2E2F34; /* Dark grey from the SP-404MKII body */
+    --sp-dark-grey: #1c1c1f;
+    --sp-orange: #FF6F00;
+    --sp-light-grey: #d3d3d3;
+    --sp-white: #FFFFFF;
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #1a1a1a;
-    color: #f0f0f0;
+    font-family: 'Saira Condensed', sans-serif;
+    background-color: var(--sp-bg);
+    color: var(--sp-white);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     margin: 0;
+    text-transform: uppercase;
+    font-weight: 700;
 }
 
 h1 {
-    color: #e0e0e0;
+    color: var(--sp-white);
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+}
+
+#main-content-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
 }
 
 #controller-container {
     display: flex;
-    gap: 40px;
-    padding: 20px;
-    background-color: #2a2a2a;
+    gap: 25px;
+    padding: 25px;
+    background-color: var(--sp-dark-grey);
     border-radius: 10px;
+    border: 2px solid #111;
+}
+
+#xy-pad-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#xy-pad {
+    width: 200px;
+    height: 200px;
+    background-color: #111;
+    border: 2px solid #444;
+    border-radius: 10px;
+    position: relative;
+    cursor: crosshair;
+}
+
+#xy-puck {
+    width: 20px;
+    height: 20px;
+    background-color: var(--sp-orange);
+    border-radius: 50%;
+    border: 2px solid var(--sp-dark-grey);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the puck */
+    pointer-events: none; /* So it doesn't interfere with mouse events on the pad */
+}
+
+#xy-labels {
+    display: flex;
+    gap: 20px;
+    color: var(--sp-light-grey);
 }
 
 .control {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
+    color: var(--sp-light-grey);
 }
 
-/* Koala-inspired Vertical Slider Styles */
 .knob {
     -webkit-appearance: slider-vertical;
     appearance: none;
-    width: 40px; /* Fatter */
-    height: 200px; /* Taller */
-    background: rgba(10, 10, 10, 0.7); /* Translucent dark track */
-    border-radius: 20px;
+    width: 30px;
+    height: 150px;
+    background: #111;
+    border: 2px solid #444;
+    border-radius: 8px;
     outline: none;
 }
 
 .knob::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 40px; /* Match track width */
-    height: 20px; /* Thumb height */
-    background: rgba(0, 123, 255, 0.8); /* Translucent blue thumb */
-    border-radius: 5px;
-    border: 1px solid rgba(0, 80, 180, 0.9);
+    width: 50px;
+    height: 25px;
+    background: var(--sp-orange);
+    border-radius: 3px;
+    border: 2px solid var(--sp-dark-grey);
     cursor: pointer;
 }
 
 .selectors-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 15px;
     margin-bottom: 20px;
 }
 
-#bus-selector {
+#bus-selector, #effect-selector {
     display: flex;
-    gap: 10px;
-}
-
-#effect-selector-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    gap: 8px;
+    padding: 8px;
+    background-color: var(--sp-dark-grey);
+    border-radius: 8px;
 }
 
 #effect-selector {
-    display: flex;
-    gap: 10px;
-    padding: 10px;
-    background-color: #222;
-    border-radius: 5px;
-    max-width: 600px; /* Adjust as needed */
+    max-width: 80vw;
     overflow-x: auto;
 }
 
-.effect-button {
-    padding: 8px 12px;
-    border: 1px solid #555;
-    background-color: #333;
-    color: #eee;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    white-space: nowrap; /* Prevent button text from wrapping */
-}
-
-.effect-button.active {
-    background-color: #28a745; /* Green for active effect */
-    border-color: #28a745;
-    color: white;
-}
-
-.effect-button:hover {
+.bus-button, .effect-button {
+    padding: 8px 15px;
+    border: 2px solid #111;
     background-color: #444;
-}
-
-.bus-button {
-    padding: 10px 15px;
-    border: 1px solid #555;
-    background-color: #333;
-    color: #eee;
+    color: var(--sp-light-grey);
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-family: inherit;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.bus-button:hover, .effect-button:hover {
+    background-color: #555;
 }
 
 .bus-button.active {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: white;
+    background-color: var(--sp-orange);
+    color: var(--sp-white);
+    box-shadow: 0 0 10px var(--sp-orange);
 }
 
-.bus-button:hover {
-    background-color: #444;
+.effect-button.active {
+    background-color: var(--sp-light-grey);
+    color: var(--sp-dark-grey);
 }
