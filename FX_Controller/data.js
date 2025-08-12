@@ -1,21 +1,8 @@
 var fxList = ["_parameter_range", "---", "---"];
 
-function bang() {
-  outlet(0, fxList);
-}
-
-function selectFx(index) {
-  if (index == 0 || index == 1) {
-    fxOneTwo();
-  } else if (index == 2 || index == 3) {
-    fxThreeFour();
-  } else {
-    fxInput();
-  }
-}
-
-function fxOneTwo() {
-  var fx = [
+// Store all FX lists in a single object for better organization and maintenance.
+var fxData = {
+  oneTwo: [
     "_parameter_range",
     "(OFF)",
     "Direct FX1",
@@ -59,16 +46,8 @@ function fxOneTwo() {
     "SX Delay",
     "Cloud Delay",
     "Back Spin",
-  ];
-
-  fxList.length = 0;
-  for (var i = 0; i < fx.length; i++) {
-    fxList.push(fx[i]);
-  }
-  bang();
-}
-function fxDirectFxOptions() {
-  var fx = [
+  ],
+  directFxOptions: [
     "_parameter_range",
     "(OFF)",
     "Filter+Drive",
@@ -112,17 +91,8 @@ function fxDirectFxOptions() {
     "SX Delay",
     "Cloud Delay",
     "Back Spin",
-  ];
-
-  fxList.length = 0;
-  for (var i = 0; i < fx.length; i++) {
-    fxList.push(fx[i]);
-  }
-  bang();
-}
-
-function fxThreeFour() {
-  var fx = [
+  ],
+  threeFour: [
     "_parameter_range",
     "(OFF)",
     "303 VinylSim",
@@ -164,16 +134,8 @@ function fxThreeFour() {
     "SX Reverb",
     "SX Delay",
     "Cloud Delay",
-  ];
-  fxList.length = 0;
-  for (var i = 0; i < fx.length; i++) {
-    fxList.push(fx[i]);
-  }
-  bang();
-}
-
-function fxInput() {
-  var fx = [
+  ],
+  input: [
     "_parameter_range",
     "(OFF)",
     "Auto Pitch",
@@ -193,10 +155,46 @@ function fxInput() {
     "Lo-fi",
     "Equalizer",
     "Compressor",
-  ];
-  fxList.length = 0;
-  for (var i = 0; i < fx.length; i++) {
-    fxList.push(fx[i]);
+  ],
+};
+
+/**
+ * Sends the current fxList to the outlet.
+ */
+function bang() {
+  outlet(0, fxList);
+}
+
+/**
+ * Updates the global fxList with a new list of effects and calls bang().
+ * @param {string} fxKey - The key for the desired FX list in the fxData object.
+ */
+function updateFxList(fxKey) {
+  if (fxData[fxKey]) {
+    // Create a copy to avoid modifying the original data.
+    fxList = fxData[fxKey].slice(0);
+    bang();
   }
-  bang();
+}
+
+/**
+ * Selects the appropriate FX list based on the FX unit index.
+ * @param {number} index - The index of the FX unit (0-3 for FX1-4, 4+ for Input FX).
+ */
+function selectFx(index) {
+  if (index === 0 || index === 1) {
+    updateFxList("oneTwo");
+  } else if (index === 2 || index === 3) {
+    updateFxList("threeFour");
+  } else {
+    updateFxList("input");
+  }
+}
+
+/**
+ * Selects the FX list for the "Direct FX" options.
+ * This function is likely called directly from the Max patch.
+ */
+function selectDirectFxOptions() {
+  updateFxList("directFxOptions");
 }

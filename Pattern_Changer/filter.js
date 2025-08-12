@@ -7,11 +7,13 @@ function bang() {
 }
 
 function filter2Grid(pitch, vel) {
-  if (vel > 0 && pitch <= 15) {
-    // output = pitch;
+  // Check for note-on messages within the SP-404MKII's pattern trigger range (MIDI notes 36-51)
+  if (vel > 0 && pitch >= 36 && pitch <= 51) {
+    // Normalize the pitch to a 0-15 range for the 4x4 grid
+    var normalized_pitch = pitch - 36;
 
-    output[0] = pitch % 4;
-    output[1] = pitch / 4;
+    output[0] = normalized_pitch % 4;
+    output[1] = Math.floor(normalized_pitch / 4);
     bang();
   }
 }

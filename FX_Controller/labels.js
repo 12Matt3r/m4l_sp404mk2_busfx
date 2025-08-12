@@ -8,6 +8,7 @@ var data = {
       min: 0,
       max: 16000,
       default: 919,
+      cc: 16,
     },
     1: {
       name: "Resonance",
@@ -15,6 +16,7 @@ var data = {
       min: 0,
       max: 100,
       default: 1,
+      cc: 17,
     },
     2: {
       name: "Drive",
@@ -22,6 +24,7 @@ var data = {
       min: 0,
       max: 100,
       default: 0,
+      cc: 18,
     },
     3: {
       name: "Flt Type",
@@ -30,6 +33,7 @@ var data = {
       max: 1,
       default: 0,
       enum: ["LPF", "HPF"],
+      cc: 80,
     },
     4: {
       name: "Low Freq",
@@ -37,6 +41,7 @@ var data = {
       min: 0,
       max: 16000,
       default: 573,
+      cc: 81,
     },
     5: {
       name: "Low Gain",
@@ -44,6 +49,7 @@ var data = {
       min: -24,
       max: 24,
       default: 0,
+      cc: 82,
     },
   },
   Resonator: {
@@ -53,6 +59,7 @@ var data = {
       min: 0,
       max: 127,
       default: 40,
+      cc: 16,
     },
     1: {
       name: "Bright",
@@ -60,6 +67,7 @@ var data = {
       min: 0,
       max: 100,
       default: 100,
+      cc: 17,
     },
     2: {
       name: "Feedback",
@@ -67,6 +75,7 @@ var data = {
       min: 0,
       max: 100,
       default: 38,
+      cc: 18,
     },
     3: {
       name: "Chord",
@@ -92,6 +101,7 @@ var data = {
         "M9",
         "M11",
       ],
+      cc: 80,
     },
     4: {
       name: "Panning",
@@ -99,6 +109,7 @@ var data = {
       min: 0,
       max: 100,
       default: 0,
+      cc: 81,
     },
     5: {
       name: "Env Mod",
@@ -106,6 +117,7 @@ var data = {
       min: 0,
       max: 100,
       default: 48,
+      cc: 82,
     },
   },
   "Sync Delay": {
@@ -133,6 +145,7 @@ var data = {
         "1/2D",
         "1/1",
       ],
+      cc: 16,
     },
     1: {
       name: "Feedback",
@@ -140,6 +153,7 @@ var data = {
       min: 0,
       max: 100,
       default: 49,
+      cc: 17,
     },
     2: {
       name: "Level",
@@ -147,6 +161,7 @@ var data = {
       min: 0,
       max: 100,
       default: 50,
+      cc: 18,
     },
     3: {
       name: "L Damp F",
@@ -154,6 +169,7 @@ var data = {
       min: 0,
       max: 800,
       default: 0,
+      cc: 80,
     },
     4: {
       name: "H Damp F",
@@ -161,6 +177,7 @@ var data = {
       min: 0,
       max: 16000,
       default: 16000,
+      cc: 81,
     },
   },
   Isolator: {
@@ -170,6 +187,7 @@ var data = {
       min: -52,
       max: 12,
       default: -52,
+      cc: 16,
     },
     1: {
       name: "Mid",
@@ -177,6 +195,7 @@ var data = {
       min: -52,
       max: 12,
       default: 9,
+      cc: 17,
     },
     2: {
       name: "High",
@@ -184,6 +203,7 @@ var data = {
       min: -52,
       max: 12,
       default: -52,
+      cc: 18,
     },
   },
   "DJFX Looper": {
@@ -193,6 +213,7 @@ var data = {
       min: 0.012,
       max: 0.23,
       default: 0.23,
+      cc: 16,
     },
     1: {
       name: "Speed",
@@ -200,6 +221,7 @@ var data = {
       min: 0,
       max: 100,
       default: 100,
+      cc: 17,
     },
     2: {
       name: "Loop Sw",
@@ -207,6 +229,7 @@ var data = {
       min: 0,
       max: 1,
       default: 0,
+      cc: 18,
     },
   },
   Scatter: {
@@ -216,6 +239,7 @@ var data = {
       min: 1,
       max: 10,
       default: 1,
+      cc: 16,
     },
     1: {
       name: "Depth",
@@ -223,6 +247,7 @@ var data = {
       min: 10,
       max: 100,
       default: 50,
+      cc: 17,
     },
     2: {
       name: "Scatter",
@@ -230,6 +255,7 @@ var data = {
       min: 0,
       max: 1,
       default: 1,
+      cc: 18,
     },
     3: {
       name: "Speed",
@@ -238,6 +264,7 @@ var data = {
       max: 1,
       default: 0,
       enum: ["Single", "Double"],
+      cc: 80,
     },
   },
   Downer: {
@@ -247,6 +274,7 @@ var data = {
       min: 0,
       max: 100,
       default: 100,
+      cc: 16,
     },
     1: {
       name: "Rate",
@@ -255,6 +283,7 @@ var data = {
       max: 7,
       default: 1,
       enum: ["2/1", "1/1", "1/2", "1/4", "1/8", "1/16", "1/32"],
+      cc: 17,
     },
     2: {
       name: "Filter",
@@ -262,12 +291,14 @@ var data = {
       min: 0,
       max: 100,
       default: 66,
+      cc: 18,
     },
     3: {
       name: "Pitch",
       min: 0,
       max: 1,
       default: 0,
+      cc: 80,
     },
     4: {
       name: "Resonance",
@@ -275,6 +306,7 @@ var data = {
       min: 0,
       max: 100,
       default: 86,
+      cc: 81,
     },
   },
   "Ha-Dou": {
@@ -284,6 +316,7 @@ var data = {
       min: 0,
       max: 100,
       default: 100,
+      cc: 16,
     },
     1: {
       name: "Time",
@@ -291,6 +324,7 @@ var data = {
       min: 0,
       max: 100,
       default: 0,
+      cc: 17,
     },
     2: {
       name: "Level",
@@ -298,6 +332,7 @@ var data = {
       min: 0,
       max: 100,
       default: 100,
+      cc: 18,
     },
     3: {
       name: "Low Cut",
@@ -305,6 +340,7 @@ var data = {
       min: 0,
       max: 800,
       default: 0,
+      cc: 80,
     },
     4: {
       name: "High Cut",
@@ -312,6 +348,7 @@ var data = {
       min: 630,
       max: 16000,
       default: 16000,
+      cc: 81,
     },
     5: {
       name: "Pre Delay",
@@ -319,6 +356,7 @@ var data = {
       min: 0,
       max: 100,
       default: 100,
+      cc: 82,
     },
   },
   "Ko-Da-Ma": {
@@ -346,6 +384,7 @@ var data = {
         "1/2D",
         "1/1",
       ],
+      cc: 16,
     },
     1: {
       name: "Feedback",
@@ -353,6 +392,7 @@ var data = {
       min: 0,
       max: 100,
       default: 69,
+      cc: 17,
     },
     2: {
       name: "Send",
@@ -360,6 +400,7 @@ var data = {
       min: 0,
       max: 100,
       default: 0,
+      cc: 18,
     },
     3: {
       name: "L Damp F",
@@ -367,6 +408,7 @@ var data = {
       min: 0,
       max: 400,
       default: 0,
+      cc: 80,
     },
     4: {
       name: "H Damp F",
@@ -374,6 +416,7 @@ var data = {
       min: 0,
       max: 12500,
       default: 16000,
+      cc: 81,
     },
     5: {
       name: "Mode",
@@ -382,6 +425,7 @@ var data = {
       max: 1,
       default: 1,
       enum: ["Single", "Pan"],
+      cc: 82,
     },
   },
   "Zan-Zou": {
@@ -391,6 +435,7 @@ var data = {
       min: 0,
       max: 100,
       default: 53,
+      cc: 16,
     },
     1: {
       name: "Feedback",
@@ -398,6 +443,7 @@ var data = {
       min: 0,
       max: 99,
       default: 89,
+      cc: 17,
     },
     2: {
       name: "HF Damp",
@@ -405,6 +451,7 @@ var data = {
       min: 200,
       max: 16000,
       default: 16000,
+      cc: 18,
     },
     3: {
       name: "Level",
@@ -412,6 +459,7 @@ var data = {
       min: 0,
       max: 100,
       default: 78,
+      cc: 80,
     },
     4: {
       name: "Mode",
@@ -420,6 +468,7 @@ var data = {
       max: 2,
       default: 0,
       enum: ["2TAP", "3TAP", "4TAP"],
+      cc: 81,
     },
     5: {
       name: "Sync",
@@ -428,6 +477,7 @@ var data = {
       max: 1,
       default: 0,
       enum: ["OFF", "ON"],
+      cc: 82,
     },
   },
   "To-Gu-Ro": {
@@ -437,6 +487,7 @@ var data = {
       min: 0,
       max: 100,
       default: 12,
+      cc: 16,
     },
     1: {
       name: "Rate",
@@ -444,6 +495,7 @@ var data = {
       min: 0,
       max: 100,
       default: 25,
+      cc: 17,
     },
     2: {
       name: "Resonance",
@@ -451,6 +503,7 @@ var data = {
       min: 0,
       max: 100,
       default: 50,
+      cc: 18,
     },
     3: {
       name: "Flt Mod",
@@ -458,6 +511,7 @@ var data = {
       min: 0,
       max: 100,
       default: 70,
+      cc: 80,
     },
     4: {
       name: "Amp Mod",
@@ -465,6 +519,7 @@ var data = {
       min: 0,
       max: 100,
       default: 0,
+      cc: 81,
     },
     5: {
       name: "Sync",
@@ -473,6 +528,7 @@ var data = {
       max: 1,
       default: 0,
       enum: ["OFF", "ON"],
+      cc: 82,
     },
   },
   SBF: {
@@ -482,6 +538,7 @@ var data = {
       min: 0,
       max: 100,
       default: 0,
+      cc: 16,
     },
     1: {
       name: "Width",
@@ -489,6 +546,7 @@ var data = {
       min: 0,
       max: 100,
       default: 0,
+      cc: 17,
     },
     2: {
       name: "Balance",
@@ -496,6 +554,7 @@ var data = {
       min: 0,
       max: 100,
       default: 50,
+      cc: 18,
     },
     3: {
       name: "Type",
@@ -504,6 +563,7 @@ var data = {
       max: 5,
       default: 0,
       enum: ["SBF1", "SBF2", "SBF3", "SBF4", "SBF5", "SBF6"],
+      cc: 80,
     },
     4: {
       name: "Gain",
@@ -512,6 +572,7 @@ var data = {
       max: 10,
       default: 0,
       enum: ["OFF", "ON"],
+      cc: 81,
     },
   },
   Stopper: {
@@ -521,6 +582,7 @@ var data = {
       min: 0,
       max: 100,
       default: 100,
+      cc: 16,
     },
     1: {
       name: "Rate",
@@ -529,6 +591,7 @@ var data = {
       max: 9,
       default: 2,
       enum: ["4/1", "2/1", "1/1", "1/2", "1/4", "1/8", "1/16", "1/32", "1/64"],
+      cc: 17,
     },
     2: {
       name: "Resonance",
@@ -536,6 +599,7 @@ var data = {
       min: 0,
       max: 100,
       default: 0,
+      cc: 18,
     },
     3: {
       name: "Flt Mod",
@@ -543,6 +607,7 @@ var data = {
       min: 0,
       max: 100,
       default: 0,
+      cc: 80,
     },
     4: {
       name: "Amp Mod",
@@ -550,6 +615,7 @@ var data = {
       min: 0,
       max: 100,
       default: 50,
+      cc: 81,
     },
   },
   "Tape Echo": {
@@ -559,6 +625,7 @@ var data = {
       min: 10,
       max: 800,
       default: 337,
+      cc: 16,
     },
     1: {
       name: "Feedback",
@@ -566,6 +633,7 @@ var data = {
       min: 0,
       max: 99,
       default: 46,
+      cc: 17,
     },
     2: {
       name: "Level",
@@ -573,6 +641,7 @@ var data = {
       min: 0,
       max: 100,
       default: 50,
+      cc: 18,
     },
     3: {
       name: "Mode",
@@ -581,6 +650,7 @@ var data = {
       max: 7,
       default: 3,
       enum: ["S", "M", "L", "S+M", "S+L", "M+L", "S+M+L"],
+      cc: 80,
     },
     4: {
       name: "W/F Rate",
@@ -588,6 +658,7 @@ var data = {
       min: 0,
       max: 100,
       default: 50,
+      cc: 81,
     },
     5: {
       name: "W/F Depth",
@@ -595,536 +666,1161 @@ var data = {
       min: 0,
       max: 100,
       default: 50,
+      cc: 82,
     },
   },
   TimeCtrlDly: {
     0: {
       name: "Time",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Feedback",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Level",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "L Damp F",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "H Damp F",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Sync",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   "Super Filter": {
     0: {
       name: "Cutoff",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Resonance",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Flt Type",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Depth",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Rate",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Sync",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   WrmSaturator: {
     0: {
       name: "Drive",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Eq Low",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Eq High",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Level",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   "303 VinylSim": {
     0: {
       name: "Comp",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Noise",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Wow Flut",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Level",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   "404 VinylSim": {
     0: {
       name: "Frequency",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Noise",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Wow Flut",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   "Cassette Sim": {
     0: {
       name: "Tone",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Hiss",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Age",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Drive",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Wow Flut",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Catch",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   "Lo-fi": {
     0: {
       name: "Pre Filt",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Lofi Type",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Tone",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Cutoff",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Balance",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Level",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   Reverb: {
     0: {
       name: "Type",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Time",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Level",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Low Cut",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "High Cut",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Pre Delay",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   Chorus: {
     0: {
       name: "Depth",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Rate",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Balance",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Eq Low",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Eq High",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Level",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   "JUNO Chorus": {
     0: {
       name: "Mode",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Noise",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Balance",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   Flanger: {
     0: {
       name: "Depth",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Rate",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Manual",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Resonance",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Balance",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Sync",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   Phaser: {
     0: {
       name: "Depth",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Rate",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Manual",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Resonance",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Balance",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Sync",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   Wah: {
     0: {
       name: "Peak",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Rate",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Manual",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Depth",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Flt Type",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Sync",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   Slicer: {
     0: {
       name: "Pattern",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Speed",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Depth",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Shuffle",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Mode",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Sync",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   "Tremolo/Pan": {
     0: {
       name: "Depth",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Rate",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Type",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Wave",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Sync",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   "Chromatic PS": {
     0: {
       name: "Pitch 1",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Pitch 2",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Balance",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Pan 1",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Pan 2",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   "Hyper-Reso": {
     0: {
       name: "Note",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Spread",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Character",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Scale",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Feedback",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Env Mod",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   "Ring Mod": {
     0: {
       name: "Frequency",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Sens",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Balance",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Polarity",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Eq Low",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Eq High",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   Crusher: {
     0: {
       name: "Filter",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Rate",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Balance",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   Overdrive: {
     0: {
       name: "Drive",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Tone",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Balance",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Level",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   Distortion: {
     0: {
       name: "Drive",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Tone",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Balance",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Level",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   Equalizer: {
     0: {
       name: "Low Gain",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Mid Gain",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "High Gain",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Low Freq",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Mid Freq",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "High Freq",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   Compressor: {
     0: {
       name: "Sustain",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Attack",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Ratio",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Lev",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   "SX Reverb": {
     0: {
       name: "Time",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Tone",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Balance",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   "SX Delay": {
     0: {
       name: "Time",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Feedback",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Balance",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   "Cloud Delay": {
     0: {
       name: "Window",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Pitch",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Balance",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Feedback",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Cloudy",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Lofi",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   "Back Spin": {
     0: {
       name: "Length",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Speed",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Back Sw",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   "Auto Pitch": {
     0: {
       name: "Pitch",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Formant",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Balance",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "At Pitch",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Key",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Robot",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   Vocoder: {
     0: {
       name: "Note",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Formant",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Tone",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Scale",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Chord",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Balance",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   Harmony: {
     0: {
       name: "Pitch",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Formant",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Balance",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "At Pitch",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Key",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Harmony",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
   "GT Amp Sim": {
     0: {
       name: "Amp Type",
+      cc: 16,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     1: {
       name: "Drive",
+      cc: 17,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     2: {
       name: "Level",
+      cc: 18,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     3: {
       name: "Bass",
+      cc: 80,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     4: {
       name: "Middle",
+      cc: 81,
+      min: 0,
+      max: 127,
+      default: 63,
     },
     5: {
       name: "Treble",
+      cc: 82,
+      min: 0,
+      max: 127,
+      default: 63,
     },
   },
 };
@@ -1157,29 +1853,20 @@ function bang() {
 }
 
 function update() {
-  for (var i = 0; i < labels.length; i++) {
-    if (!startsWith(fxTypes[module], "Direct")) {
-      if (
-        data[fxTypes[module]] == undefined ||
-        data[fxTypes[module]][i] == undefined ||
-        data[fxTypes[module]][i].name == undefined
-      ) {
-        labels[i] = "---";
-      } else {
-        labels[i] = data[fxTypes[module]][i].name;
-      }
-    } else {
-      var directFxNumber = parseInt(fxTypes[module].slice(-1)) - 1; // get last character (Direct FX number)
+  var currentFxName;
+  if (startsWith(fxTypes[module], "Direct")) {
+    var directFxNumber = parseInt(fxTypes[module].slice(-1)) - 1;
+    currentFxName = directFxTypes[directFxNumber];
+  } else {
+    currentFxName = fxTypes[module];
+  }
 
-      if (
-        data[directFxTypes[directFxNumber]] == undefined ||
-        data[directFxTypes[directFxNumber]][i] == undefined ||
-        data[directFxTypes[directFxNumber]][i].name == undefined
-      ) {
-        labels[i] = "---";
-      } else {
-        labels[i] = data[directFxTypes[directFxNumber]][i].name;
-      }
+  for (var i = 0; i < labels.length; i++) {
+    var fxParam = data[currentFxName];
+    if (fxParam && fxParam[i] && fxParam[i].name) {
+      labels[i] = fxParam[i].name;
+    } else {
+      labels[i] = "---";
     }
   }
   bang();
