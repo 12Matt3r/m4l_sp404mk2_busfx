@@ -9,13 +9,48 @@
 <body>
     <h1>SP-404MKII Web Controller</h1>
 
-    <div id="controller-container">
-        <div class="control">
-            <label for="knob1">Filter Cutoff</label>
-            <input type="range" id="knob1" class="knob" min="0" max="127" value="63" orient="vertical">
+    <div class="selectors-container">
+        <div id="bus-selector">
+            <button class="bus-button active" data-channel="0">BUS 1</button>
+            <button class="bus-button" data-channel="1">BUS 2</button>
+            <button class="bus-button" data-channel="2">BUS 3</button>
+            <button class="bus-button" data-channel="3">BUS 4</button>
+            <button class="bus-button" data-channel="4">INPUT</button>
+        </div>
+        <div id="effect-selector-container">
+            <!-- Buttons will be dynamically inserted here by main.js -->
+            <div id="effect-selector"></div>
         </div>
     </div>
 
+    <div id="controller-container">
+        <div class="control">
+            <label for="knob1">CTRL 1</label>
+            <input type="range" id="knob1" class="knob" min="0" max="127" value="63" orient="vertical" data-cc="16">
+        </div>
+        <div class="control">
+            <label for="knob2">CTRL 2</label>
+            <input type="range" id="knob2" class="knob" min="0" max="127" value="63" orient="vertical" data-cc="17">
+        </div>
+        <div class="control">
+            <label for="knob3">CTRL 3</label>
+            <input type="range" id="knob3" class="knob" min="0" max="127" value="63" orient="vertical" data-cc="18">
+        </div>
+        <div class="control">
+            <label for="knob4">CTRL 4</label>
+            <input type="range" id="knob4" class="knob" min="0" max="127" value="63" orient="vertical" data-cc="80">
+        </div>
+        <div class="control">
+            <label for="knob5">CTRL 5</label>
+            <input type="range" id="knob5" class="knob" min="0" max="127" value="63" orient="vertical" data-cc="81">
+        </div>
+        <div class="control">
+            <label for="knob6">CTRL 6</label>
+            <input type="range" id="knob6" class="knob" min="0" max="127" value="63" orient="vertical" data-cc="82">
+        </div>
+    </div>
+
+    <script src="fx_data.js"></script>
     <script src="main.js"></script>
 </body>
 </html>

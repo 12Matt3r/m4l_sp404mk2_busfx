@@ -26,13 +26,96 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 15px;
+}
+
+/* Koala-inspired Vertical Slider Styles */
+.knob {
+    -webkit-appearance: slider-vertical;
+    appearance: none;
+    width: 40px; /* Fatter */
+    height: 200px; /* Taller */
+    background: rgba(10, 10, 10, 0.7); /* Translucent dark track */
+    border-radius: 20px;
+    outline: none;
+}
+
+.knob::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 40px; /* Match track width */
+    height: 20px; /* Thumb height */
+    background: rgba(0, 123, 255, 0.8); /* Translucent blue thumb */
+    border-radius: 5px;
+    border: 1px solid rgba(0, 80, 180, 0.9);
+    cursor: pointer;
+}
+
+.selectors-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+#bus-selector {
+    display: flex;
     gap: 10px;
 }
 
-/* Basic styling for vertical knob/fader */
-.knob {
-    -webkit-appearance: slider-vertical; /* WebKit */
-    width: 20px;
-    height: 150px;
-    padding: 0 5px;
+#effect-selector-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#effect-selector {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background-color: #222;
+    border-radius: 5px;
+    max-width: 600px; /* Adjust as needed */
+    overflow-x: auto;
+}
+
+.effect-button {
+    padding: 8px 12px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #eee;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.effect-button.active {
+    background-color: #28a745; /* Green for active effect */
+    border-color: #28a745;
+    color: white;
+}
+
+.effect-button:hover {
+    background-color: #444;
+}
+
+.bus-button {
+    padding: 10px 15px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #eee;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.bus-button.active {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.bus-button:hover {
+    background-color: #444;
 }
