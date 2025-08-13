@@ -243,3 +243,57 @@ header {
     background-color: var(--sp-light-grey);
     color: var(--sp-dark-grey);
 }
+
+/* Preset Container Styles */
+#preset-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--sp-dark-grey);
+    border-radius: 10px;
+    border: 2px solid #111;
+    width: 80%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#preset-container h3 {
+    text-align: center;
+    margin: 0 0 10px 0;
+    color: var(--sp-orange);
+}
+
+.preset-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+#preset-list {
+    flex-grow: 1;
+    background-color: #333;
+    color: var(--sp-light-grey);
+    border: 2px solid #111;
+    border-radius: 5px;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 1em;
+}
+
+#preset-name {
+    flex-grow: 1;
+    background-color: #333;
+    color: var(--sp-light-grey);
+    border: 2px solid #111;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-family: inherit;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+#preset-name::placeholder {
+    color: #888;
+    text-transform: uppercase;
+}
