@@ -10,7 +10,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>SP-404MKII Web Controller</h1>
+    <header>
+        <h1>SP-404MKII Web Controller</h1>
+        <button id="help-button">?</button>
+    </header>
 
     <div class="selectors-container">
         <div id="bus-selector">
@@ -66,5 +69,16 @@
 
     <script src="fx_data.js"></script>
     <script src="main.js"></script>
+
+    <!-- Help Modal -->
+    <div id="help-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="close-button">&times;</button>
+            <h2>Instructions</h2>
+            <div id="instructions-content">
+                <!-- Content will be populated by main.js -->
+            </div>
+        </div>
+    </div>
 </body>
 </html>

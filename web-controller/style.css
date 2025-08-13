@@ -146,6 +146,93 @@ h1 {
     background-color: #555;
 }
 
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+#help-button {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--sp-light-grey);
+    background-color: var(--sp-dark-grey);
+    color: var(--sp-light-grey);
+    font-size: 1.5em;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--sp-bg);
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid var(--sp-dark-grey);
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    text-transform: none; /* Normal text for instructions */
+    font-weight: 400;
+}
+
+.modal-content h2 {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--sp-orange);
+    margin-top: 0;
+}
+
+.modal-content h3 {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--sp-white);
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+.modal-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--sp-light-grey);
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
 .bus-button.active {
     background-color: var(--sp-orange);
     color: var(--sp-white);
