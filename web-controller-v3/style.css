@@ -1,0 +1,310 @@
+:root {
+    --sp-bg: #2E2F34; /* Dark grey from the SP-404MKII body */
+    --sp-dark-grey: #1c1c1f;
+    --sp-orange: #FF6F00;
+    --sp-light-grey: #d3d3d3;
+    --sp-white: #FFFFFF;
+}
+
+body {
+    font-family: 'Saira Condensed', sans-serif;
+    background-color: var(--sp-bg);
+    color: var(--sp-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+h1 {
+    color: var(--sp-white);
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    letter-spacing: 2px;
+}
+
+#main-content-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+#controller-container {
+    display: flex;
+    gap: 25px;
+    padding: 25px;
+    background-color: var(--sp-dark-grey);
+    border-radius: 10px;
+    border: 2px solid #111;
+}
+
+#xy-pad-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#xy-pad {
+    width: 200px;
+    height: 200px;
+    background-color: #111;
+    border: 2px solid #444;
+    border-radius: 10px;
+    position: relative;
+    cursor: crosshair;
+}
+
+#xy-puck {
+    width: 20px;
+    height: 20px;
+    background-color: var(--sp-orange);
+    border-radius: 50%;
+    border: 2px solid var(--sp-dark-grey);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the puck */
+    pointer-events: none; /* So it doesn't interfere with mouse events on the pad */
+}
+
+#xy-labels {
+    display: flex;
+    gap: 20px;
+    color: var(--sp-light-grey);
+}
+
+.control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--sp-light-grey);
+}
+
+.knob {
+    -webkit-appearance: slider-vertical;
+    appearance: none;
+    width: 30px;
+    height: 150px;
+    background: #111;
+    border: 2px solid #444;
+    border-radius: 8px;
+    outline: none;
+}
+
+.knob::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50px;
+    height: 25px;
+    background: var(--sp-orange);
+    border-radius: 3px;
+    border: 2px solid var(--sp-dark-grey);
+    cursor: pointer;
+}
+
+.selectors-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#bus-selector, #effect-selector {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    background-color: var(--sp-dark-grey);
+    border-radius: 8px;
+}
+
+#effect-selector {
+    max-width: 80vw;
+    overflow-x: auto;
+}
+
+.bus-button, .effect-button {
+    padding: 8px 15px;
+    border: 2px solid #111;
+    background-color: #444;
+    color: var(--sp-light-grey);
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.bus-button:hover, .effect-button:hover {
+    background-color: #555;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+#help-button {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--sp-light-grey);
+    background-color: var(--sp-dark-grey);
+    color: var(--sp-light-grey);
+    font-size: 1.5em;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--sp-bg);
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid var(--sp-dark-grey);
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    text-transform: none; /* Normal text for instructions */
+    font-weight: 400;
+}
+
+.modal-content h2 {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--sp-orange);
+    margin-top: 0;
+}
+
+.modal-content h3 {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--sp-white);
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+.modal-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--sp-light-grey);
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.bus-button.active {
+    background-color: var(--sp-orange);
+    color: var(--sp-white);
+    box-shadow: 0 0 10px var(--sp-orange);
+}
+
+.effect-button.active {
+    background-color: var(--sp-light-grey);
+    color: var(--sp-dark-grey);
+}
+
+/* Preset Container Styles */
+#preset-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--sp-dark-grey);
+    border-radius: 10px;
+    border: 2px solid #111;
+    width: 80%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#preset-container h3 {
+    text-align: center;
+    margin: 0 0 10px 0;
+    color: var(--sp-orange);
+}
+
+.preset-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+#preset-list {
+    flex-grow: 1;
+    background-color: #333;
+    color: var(--sp-light-grey);
+    border: 2px solid #111;
+    border-radius: 5px;
+    padding: 8px;
+    font-family: inherit;
+    font-size: 1em;
+}
+
+#preset-name {
+    flex-grow: 1;
+    background-color: #333;
+    color: var(--sp-light-grey);
+    border: 2px solid #111;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-family: inherit;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+#preset-name::placeholder {
+    color: #888;
+    text-transform: uppercase;
+}
+
+#preset-description {
+    background-color: #333;
+    color: var(--sp-light-grey);
+    border-radius: 5px;
+    padding: 15px;
+    min-height: 40px;
+    text-transform: none;
+    font-weight: 400;
+    font-style: italic;
+}
