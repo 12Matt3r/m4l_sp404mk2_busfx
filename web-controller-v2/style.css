@@ -297,3 +297,14 @@ header {
     color: #888;
     text-transform: uppercase;
 }
+
+#preset-description {
+    background-color: #333;
+    color: var(--sp-light-grey);
+    border-radius: 5px;
+    padding: 15px;
+    min-height: 40px;
+    text-transform: none;
+    font-weight: 400;
+    font-style: italic;
+}
