@@ -7,25 +7,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // GLOBAL STATE & CONSTANTS
     // =================================================================
     let sp404mk2Output = null;
-    let currentBusIndex = 0; // 0-4 for BUS 1-4, INPUT
+    let currentBusIndex = 0;
     let isDragging = false;
-    const PRESETS_STORAGE_KEY = 'sp404mk2_web_presets';
+    const PRESETS_STORAGE_KEY = 'sp404mk2_web_presets_v2'; // Use a new key for V2
 
-    // The main state object for the entire controller.
-    // This tracks the current state of all buses and their controls.
     let sp404State = {
         buses: [
-            { effectIndex: 1, knobs: [63, 63, 63, 63, 63, 63] }, // BUS 1
-            { effectIndex: 1, knobs: [63, 63, 63, 63, 63, 63] }, // BUS 2
-            { effectIndex: 1, knobs: [63, 63, 63, 63, 63, 63] }, // BUS 3
-            { effectIndex: 1, knobs: [63, 63, 63, 63, 63, 63] }, // BUS 4
-            { effectIndex: 1, knobs: [63, 63, 63, 63, 63, 63] }, // INPUT
+            { effectIndex: 1, knobs: [63, 63, 63, 63, 63, 63] },
+            { effectIndex: 1, knobs: [63, 63, 63, 63, 63, 63] },
+            { effectIndex: 1, knobs: [63, 63, 63, 63, 63, 63] },
+            { effectIndex: 1, knobs: [63, 63, 63, 63, 63, 63] },
+            { effectIndex: 1, knobs: [63, 63, 63, 63, 63, 63] },
         ]
     };
 
     // =================================================================
     // UI ELEMENT REFERENCES
     // =================================================================
+    // (omitted for brevity, no changes here)
     const knobs = document.querySelectorAll('.knob');
     const busButtons = document.querySelectorAll('.bus-button');
     const effectSelectorContainer = document.getElementById('effect-selector');
@@ -42,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const savePresetButton = document.getElementById('save-preset-button');
     const loadPresetButton = document.getElementById('load-preset-button');
     const deletePresetButton = document.getElementById('delete-preset-button');
+
 
     // =================================================================
     // MIDI INITIALIZATION
@@ -71,6 +71,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // PRESET MANAGEMENT
     // =================================================================
 
+    function initializePresets() {
+        const presets = localStorage.getItem(PRESETS_STORAGE_KEY);
+        if (!presets || Object.keys(JSON.parse(presets)).length === 0) {
+            // If no presets exist, load the defaults.
+            savePresets(defaultPresets);
+        }
+    }
+
     function getPresets() {
         return JSON.parse(localStorage.getItem(PRESETS_STORAGE_KEY)) || {};
     }
@@ -97,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         const presets = getPresets();
-        presets[name] = JSON.parse(JSON.stringify(sp404State)); // Deep copy of the state
+        presets[name] = JSON.parse(JSON.stringify(sp404State));
         savePresets(presets);
         populatePresetList();
         presetNameInput.value = '';
@@ -105,33 +113,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleLoadPreset() {
         const name = presetList.value;
-        if (!name) {
-            alert("Please select a preset to load.");
-            return;
-        }
+        if (!name) return;
         const presets = getPresets();
         const preset = presets[name];
         if (preset) {
             sp404State = preset;
-            // Send all MIDI messages to update the hardware
             preset.buses.forEach((busState, busIndex) => {
-                sendMIDIMessage(busIndex, 83, busState.effectIndex); // Set effect
+                sendMIDIMessage(busIndex, 83, busState.effectIndex);
                 busState.knobs.forEach((knobValue, knobIndex) => {
                     const cc = parseInt(knobs[knobIndex].dataset.cc, 10);
-                    sendMIDIMessage(busIndex, cc, knobValue); // Set knob
+                    sendMIDIMessage(busIndex, cc, knobValue);
                 });
             });
-            // Update the UI to reflect the new state
             updateUIForCurrentBus();
         }
     }
 
     function handleDeletePreset() {
         const name = presetList.value;
-        if (!name) {
-            alert("Please select a preset to delete.");
-            return;
-        }
+        if (!name) return;
         if (confirm(`Are you sure you want to delete the preset "${name}"?`)) {
             const presets = getPresets();
             delete presets[name];
@@ -140,24 +140,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-
     // =================================================================
-    // UI LOGIC AND RENDERING
+    // UI LOGIC & EVENT HANDLERS
     // =================================================================
 
-    /** Updates all UI elements to match the state for the current bus */
     function updateUIForCurrentBus() {
         populateEffectSelector();
         const busState = sp404State.buses[currentBusIndex];
-
-        // Set the active effect button
         const currentActive = effectSelectorContainer.querySelector('.active');
         if (currentActive) currentActive.classList.remove('active');
         const newActiveButton = effectSelectorContainer.querySelector(`[data-effect-index="${busState.effectIndex}"]`);
-        if (newActiveButton) {
-            newActiveButton.classList.add('active');
-        }
-
+        if (newActiveButton) newActiveButton.classList.add('active');
         updateKnobLabels();
         updateKnobValues();
     }
@@ -191,38 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateKnobValues() {
         const busState = sp404State.buses[currentBusIndex];
-        knobs.forEach((knob, index) => {
-            knob.value = busState.knobs[index];
-        });
+        knobs.forEach((knob, index) => knob.value = busState.knobs[index]);
     }
-
-    function populateInstructions() {
-        instructionsContent.innerHTML = `
-            <h3>Connection</h3>
-            <ul>
-                <li>Connect your SP-404MKII to your computer via USB-C.</li>
-                <li>This web page should ask for MIDI permissions when loaded. Please click "Allow".</li>
-                <li>If the controller doesn't seem to work, ensure no other music software (like a DAW) is currently using the SP-404MKII as a MIDI device.</li>
-            </ul>
-            <h3>How to Use</h3>
-            <ul>
-                <li><b>BUS Selector:</b> Use the top-left buttons (BUS 1-4, INPUT) to choose which effect unit to control.</li>
-                <li><b>Effect Selector:</b> Click an effect from the scrolling list to change the active effect on the selected BUS.</li>
-                <li><b>Sliders:</b> Use the 6 vertical sliders to control the parameters of the selected effect. The labels above them will update based on the chosen effect.</li>
-                <li><b>X/Y Pad:</b> Click and drag inside the square pad to control the first two effect parameters at the same time. The X-axis controls parameter 1, and the Y-axis controls parameter 2.</li>
-            </ul>
-            <h3>Presets</h3>
-            <ul>
-                <li><b>Save:</b> Type a name in the 'Preset Name' box and click SAVE to store the current state of all 5 BUSes.</li>
-                <li><b>Load:</b> Select a preset from the dropdown list and click LOAD to restore the saved state.</li>
-                <li><b>Delete:</b> Select a preset from the dropdown list and click DELETE to permanently remove it.</li>
-            </ul>
-        `;
-    }
-
-    // =================================================================
-    // EVENT HANDLERS
-    // =================================================================
 
     function handleEffectSelection(e) {
         const effectIndex = parseInt(e.target.dataset.effectIndex, 10);
@@ -239,18 +202,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     knobs.forEach((knob, index) => {
-        knob.addEventListener('input', (event) => {
-            const value = parseInt(event.target.value, 10);
+        knob.addEventListener('input', (e) => {
+            const value = parseInt(e.target.value, 10);
             sp404State.buses[currentBusIndex].knobs[index] = value;
-            const cc = parseInt(knob.dataset.cc, 10);
-            sendMIDIMessage(currentBusIndex, cc, value);
+            sendMIDIMessage(currentBusIndex, parseInt(knob.dataset.cc, 10), value);
         });
     });
-
-    busButtons.forEach(button => button.addEventListener('click', handleBusSelection));
-    savePresetButton.addEventListener('click', handleSavePreset);
-    loadPresetButton.addEventListener('click', handleLoadPreset);
-    deletePresetButton.addEventListener('click', handleDeletePreset);
 
     function handleDrag(e) {
         if (!isDragging) return;
@@ -262,45 +219,43 @@ document.addEventListener('DOMContentLoaded', () => {
         xyPuck.style.top = `${y}px`;
         const xValue = Math.round((x / rect.width) * 127);
         const yValue = Math.round(127 - (y / rect.height) * 127);
-
         sp404State.buses[currentBusIndex].knobs[0] = xValue;
         sp404State.buses[currentBusIndex].knobs[1] = yValue;
-        updateKnobValues(); // Sync sliders with X/Y pad
-
+        updateKnobValues();
         sendMIDIMessage(currentBusIndex, 16, xValue);
         sendMIDIMessage(currentBusIndex, 17, yValue);
     }
 
+    // Attach all event listeners
+    busButtons.forEach(button => button.addEventListener('click', handleBusSelection));
+    savePresetButton.addEventListener('click', handleSavePreset);
+    loadPresetButton.addEventListener('click', handleLoadPreset);
+    deletePresetButton.addEventListener('click', handleDeletePreset);
     xyPad.addEventListener('mousedown', (e) => { isDragging = true; handleDrag(e); });
-    xyPad.addEventListener('touchstart', (e) => { isDragging = true; handleDrag(e); });
     document.addEventListener('mousemove', handleDrag);
-    document.addEventListener('touchmove', handleDrag);
     document.addEventListener('mouseup', () => { isDragging = false; });
-    document.addEventListener('touchend', () => { isDragging = false; });
-
     helpButton.addEventListener('click', () => helpModal.classList.remove('hidden'));
     closeModalButton.addEventListener('click', () => helpModal.classList.add('hidden'));
     helpModal.addEventListener('click', (e) => { if (e.target === helpModal) helpModal.classList.add('hidden'); });
 
     // =================================================================
-    // MIDI SENDING
+    // MIDI SENDING & INITIAL SETUP
     // =================================================================
 
     function sendMIDIMessage(busIndex, ccNumber, value) {
         if (sp404mk2Output) {
             const statusByte = 0xB0 + busIndex;
-            const message = [statusByte, ccNumber, value];
-            sp404mk2Output.send(message);
+            sp404mk2Output.send([statusByte, ccNumber, value]);
         } else {
             console.log(`(Pretending to send) MIDI CC: Channel ${busIndex + 1}, CC#${ccNumber}, Value ${value}`);
         }
     }
 
-    // =================================================================
-    // INITIAL SETUP
-    // =================================================================
+    function init() {
+        initializePresets();
+        populatePresetList();
+        updateUIForCurrentBus();
+    }
 
-    updateUIForCurrentBus();
-    populateInstructions();
-    populatePresetList();
+    init();
 });
