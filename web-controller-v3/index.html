@@ -32,27 +32,45 @@
     <div id="main-content-container">
         <div id="controller-container">
             <div class="control">
-                <label for="knob1">CTRL 1</label>
+                <div class="control-label-container">
+                    <label for="knob1">CTRL 1</label>
+                    <button class="map-button" data-knob="1">MAP</button>
+                </div>
                 <input type="range" id="knob1" class="knob" min="0" max="127" value="63" data-cc="16">
             </div>
             <div class="control">
-                <label for="knob2">CTRL 2</label>
+                <div class="control-label-container">
+                    <label for="knob2">CTRL 2</label>
+                    <button class="map-button" data-knob="2">MAP</button>
+                </div>
                 <input type="range" id="knob2" class="knob" min="0" max="127" value="63" data-cc="17">
             </div>
             <div class="control">
-                <label for="knob3">CTRL 3</label>
+                <div class="control-label-container">
+                    <label for="knob3">CTRL 3</label>
+                    <button class="map-button" data-knob="3">MAP</button>
+                </div>
                 <input type="range" id="knob3" class="knob" min="0" max="127" value="63" data-cc="18">
             </div>
             <div class="control">
-                <label for="knob4">CTRL 4</label>
+                <div class="control-label-container">
+                    <label for="knob4">CTRL 4</label>
+                    <button class="map-button" data-knob="4">MAP</button>
+                </div>
                 <input type="range" id="knob4" class="knob" min="0" max="127" value="63" data-cc="80">
             </div>
             <div class="control">
-                <label for="knob5">CTRL 5</label>
+                <div class="control-label-container">
+                    <label for="knob5">CTRL 5</label>
+                    <button class="map-button" data-knob="5">MAP</button>
+                </div>
                 <input type="range" id="knob5" class="knob" min="0" max="127" value="63" data-cc="81">
             </div>
             <div class="control">
-                <label for="knob6">CTRL 6</label>
+                <div class="control-label-container">
+                    <label for="knob6">CTRL 6</label>
+                    <button class="map-button" data-knob="6">MAP</button>
+                </div>
                 <input type="range" id="knob6" class="knob" min="0" max="127" value="63" data-cc="82">
             </div>
         </div>
@@ -94,6 +112,17 @@
             <h2>Instructions</h2>
             <div id="instructions-content">
                 <!-- Content will be populated by main.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Mapping Modal -->
+    <div id="map-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="close-button">&times;</button>
+            <h2>Map Control</h2>
+            <div id="map-param-list">
+                <!-- Parameter buttons will be dynamically inserted here -->
             </div>
         </div>
     </div>

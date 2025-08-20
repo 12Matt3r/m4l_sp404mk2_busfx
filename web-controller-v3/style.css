@@ -308,3 +308,28 @@ header {
     font-weight: 400;
     font-style: italic;
 }
+
+/* Mapping UI Styles */
+.control-label-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.map-button {
+    padding: 2px 6px;
+    font-size: 0.7em;
+    background-color: #555;
+    border: 1px solid #111;
+    color: var(--sp-light-grey);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#map-param-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+}
